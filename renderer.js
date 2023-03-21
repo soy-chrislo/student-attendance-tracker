@@ -1,10 +1,12 @@
+// index.html
 window.addEventListener("DOMContentLoaded", () => {
-  const input = document.getElementById("input");
-  const button = document.getElementById("button");
+  const buttonRegistrarAlumno = document.getElementById("registrar-alumno");
+  const buttonListaAlumnos = document.getElementById("lista-alumnos");
 
-  button.addEventListener("click", () => {
-    const value = input.value;
-    window.electronAPI.send("message", value);
+  buttonRegistrarAlumno.addEventListener("click", () => {
     window.electronAPI.send("change-window", "register.html");
+  });
+  buttonListaAlumnos.addEventListener("click", () => {
+    window.electronAPI.send("change-window", "list.html");
   });
 });

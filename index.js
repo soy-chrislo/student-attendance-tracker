@@ -12,12 +12,28 @@ function createWindow() {
   });
 
   win.loadFile("index.html");
-  ipcMain.on("message", (event, content) => {
-    console.log(content);
-    saveData(content);
-  });
+
   ipcMain.on("change-window", (event, page) => {
-    win.loadFile(page);
+    if (page === "index.html") {
+      win.loadFile(page);
+    } else {
+      const pathPage = `views/${page.split(".")[0]}/${page}`;
+      win.loadFile(pathPage);
+    }
+  });
+  ipcMain.on("registrar-alumno", (event, data) => {
+    // incluir id
+    data.id = getIdToRegister();
+    saveData(data);
+  });
+  ipcMain.on("dame-estudiantes", (event) => {
+    fs.readFile("data.json", "utf8", (err, data) => {
+      if (err) {
+        console.error(err);
+        return;
+      }
+      win.webContents.send("estudiantes", JSON.parse(data));
+    });
   });
 }
 
@@ -38,14 +54,56 @@ app.on("window-all-closed", () => {
 });
 
 function saveData(content) {
-  fs.readFile("data.txt", "utf8", (err, data) => {
+  if (!fs.existsSync("data.json")) {
+    fs.writeFileSync("data.json", "[]");
+  }
+  fs.readFile("data.json", "utf8", (err, data) => {
     if (err) {
       console.error(err);
       return;
     }
-    fs.writeFile("data.txt", data + "\n" + content, (err) => {
-      if (err) throw err;
-      console.log("The file has been saved!");
+    let dataArray = JSON.parse(data);
+    if (!Array.isArray(dataArray)) {
+      dataArray = [];
+    }
+    dataArray.push(content);
+    fs.writeFile("data.json", JSON.stringify(dataArray), (err) => {
+      if (err) {
+        console.error(err);
+        return;
+      }
+    });
+  });
+}
+
+// register counter
+function getIdToRegister() {
+  if (!fs.existsSync("id.txt")) {
+    fs.writeFileSync("id.txt", "0");
+  }
+  const dataFile = fs.readFileSync("id.txt", "utf8", (err, data) => {
+    if (err) {
+      console.error(err);
+      return;
+    }
+    return data;
+  });
+  incrementId();
+  return Number(dataFile);
+}
+
+function incrementId() {
+  fs.readFile("id.txt", "utf8", (err, data) => {
+    if (err) {
+      console.error(err);
+      return;
+    }
+    let number = Number(data) + 1;
+    fs.writeFile("id.txt", number.toString(), (err) => {
+      if (err) {
+        console.error(err);
+        return;
+      }
     });
   });
 }
