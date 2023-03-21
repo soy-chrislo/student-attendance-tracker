@@ -11,19 +11,9 @@ function createWindow () {
   })
 
   win.loadFile('index.html')
-
-  ipcMain.handle('dark-mode:toggle', () => {
-    if (nativeTheme.shouldUseDarkColors) {
-      nativeTheme.themeSource = 'light'
-    } else {
-      nativeTheme.themeSource = 'dark'
-    }
-    return nativeTheme.shouldUseDarkColors
-  })
-
-  ipcMain.handle('dark-mode:system', () => {
-    nativeTheme.themeSource = 'system'
-  })
+  ipcMain.on('message', (event, arg) => {
+    console.log(arg)
+  });
 }
 
 app.whenReady().then(() => {
@@ -40,4 +30,5 @@ app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {
     app.quit()
   }
-})
+});
+

@@ -1,15 +1,9 @@
-document
-  .getElementById("toggle-dark-mode")
-  .addEventListener("click", async () => {
-    const isDarkMode = await window.darkMode.toggle();
-    document.getElementById("theme-source").innerHTML = isDarkMode
-      ? "Dark"
-      : "Light";
-  });
+window.addEventListener('DOMContentLoaded', () => {
+  const input = document.getElementById('input');
+  const button = document.getElementById('button');
 
-document
-  .getElementById("reset-to-system")
-  .addEventListener("click", async () => {
-    await window.darkMode.system();
-    document.getElementById("theme-source").innerHTML = "System";
+  button.addEventListener('click', () => {
+    const value = input.value;
+    window.electronAPI.send('message', value);
   });
+});
