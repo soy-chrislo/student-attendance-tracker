@@ -1,9 +1,10 @@
-window.addEventListener('DOMContentLoaded', () => {
-  const input = document.getElementById('input');
-  const button = document.getElementById('button');
+window.addEventListener("DOMContentLoaded", () => {
+  const input = document.getElementById("input");
+  const button = document.getElementById("button");
 
-  button.addEventListener('click', () => {
+  button.addEventListener("click", () => {
     const value = input.value;
-    window.electronAPI.send('message', value);
+    window.electronAPI.send("message", value);
+    window.electronAPI.send("change-window", "register.html");
   });
 });
