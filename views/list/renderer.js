@@ -2,12 +2,18 @@
 window.addEventListener("DOMContentLoaded", () => {
   const buttonRegresarInicio = document.getElementById("regresar-inicio");
   const buttonRegistrarAlumno = document.getElementById("registrar-alumno");
+  const buttonRegistroAsistencias = document.getElementById(
+    "registro-asistencias"
+  );
 
-  buttonRegresarInicio?.addEventListener("click", () => {
+  buttonRegresarInicio.addEventListener("click", () => {
     window.electronAPI.send("change-window", "index.html");
   });
-  buttonRegistrarAlumno?.addEventListener("click", () => {
+  buttonRegistrarAlumno.addEventListener("click", () => {
     window.electronAPI.send("change-window", "register.html");
+  });
+  buttonRegistroAsistencias.addEventListener("click", () => {
+    window.electronAPI.send("change-window", "asistencias.html");
   });
 
   // receive data from main process

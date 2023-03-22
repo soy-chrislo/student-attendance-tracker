@@ -8,6 +8,9 @@ function createWindow() {
     height: 600,
     webPreferences: {
       preload: path.join(__dirname, "preload.js"),
+      contextIsolation: true,
+      nodeIntegration: true,
+      webSecurity: true,
     },
   });
 
@@ -22,7 +25,6 @@ function createWindow() {
     }
   });
   ipcMain.on("registrar-alumno", (event, data) => {
-    // incluir id
     data.id = getIdToRegister();
     saveData(data);
   });
@@ -34,6 +36,35 @@ function createWindow() {
       }
       win.webContents.send("estudiantes", JSON.parse(data));
     });
+  });
+  ipcMain.on("generar-registro", (event, data) => {
+    if (!fs.existsSync("data.json")) {
+      fs.writeFileSync("data.json", "[]");
+    }
+    const reporte = [];
+    const reporteAsistieron = [];
+    const reporteNoAsistieron = [];
+    const estudiantes = JSON.parse(fs.readFileSync("data.json", "utf8"));
+    const idsPresentes = data.presentes;
+    const idsAusentes = data.ausentes;
+    estudiantes.forEach((estudiante) => {
+      if (idsPresentes.includes(estudiante.id.toString())) {
+        reporteAsistieron.push(estudiante);
+      } else if (idsAusentes.includes(estudiante.id.toString())) {
+        reporteNoAsistieron.push(estudiante);
+      }
+    });
+    reporte.push({
+      asistieron: reporteAsistieron,
+      noAsistieron: reporteNoAsistieron,
+    });
+    const date = new Date();
+    const dateString = `${date.getDate()}-${date.getMonth()}-${date.getFullYear()}`;
+    const nombreFile = `reporte-${dateString}.json`;
+    if (!fs.existsSync(nombreFile)) {
+      fs.writeFileSync(nombreFile, "[]");
+    }
+    fs.writeFileSync(nombreFile, JSON.stringify(reporte));
   });
 }
 

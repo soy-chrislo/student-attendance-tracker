@@ -3,6 +3,9 @@ window.addEventListener("DOMContentLoaded", () => {
   const buttonRegresarInicio = document.getElementById("regresar-inicio");
   const buttonRegistrarAlumno = document.getElementById("registrar-alumno");
   const buttonListaAlumnos = document.getElementById("lista-alumnos");
+  const buttonRegistroAsistencias = document.getElementById(
+    "registro-asistencias"
+  );
 
   const inputNombre = document.getElementById("nombre");
   const inputGrado = document.getElementById("grado");
@@ -21,5 +24,8 @@ window.addEventListener("DOMContentLoaded", () => {
   });
   buttonListaAlumnos.addEventListener("click", () => {
     window.electronAPI.send("change-window", "list.html");
+  });
+  buttonRegistroAsistencias.addEventListener("click", () => {
+    window.electronAPI.send("change-window", "asistencias.html");
   });
 });

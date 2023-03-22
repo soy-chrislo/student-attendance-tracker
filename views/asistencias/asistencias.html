@@ -5,23 +5,31 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="Content-Security-Policy" content="script-src 'self';" />
-    <meta http-equiv="X-Content-Security-Policy" content="script-src 'self';" />
     <link rel="stylesheet" type="text/css" href="../../styles.css" />
+    <meta http-equiv="X-Content-Security-Policy" content="script-src 'self';" />
     <title>Document</title>
   </head>
   <body>
-    <h1>Registro de Estudiantes</h1>
+    <h1>Registrar asistencias</h1>
     <button id="regresar-inicio">Regresar a Inicio</button>
     <button id="lista-alumnos">Listar Alumnos</button>
-    <button id="registro-asistencias">Registro de asistencias</button>
+    <button id="registrar-alumno">Registrar Alumno</button>
 
-    <form>
-      <label for="nombre">Nombre</label>
-      <input type="text" id="nombre" />
-      <label for="grado">Grado</label>
-      <input type="text" id="grado" />
-      <button id="registrar-alumno">Registrar</button>
-    </form>
+    <div>
+      <h2>Lista Ausentes</h2>
+      <ul id="lista-ausentes">
+
+      </ul>
+    </div>
+
+    <div>
+      <h2>Lista Presentes</h2>
+      <ul id="lista-presentes">
+        
+      </ul>
+    </div>
+    <button id="generar-registro">Generar registro</button>
+
     <script defer src="renderer.js"></script>
   </body>
 </html>
