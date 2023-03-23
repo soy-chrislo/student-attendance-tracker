@@ -1,26 +1,54 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="Content-Security-Policy" content="script-src 'self';" />
     <meta http-equiv="X-Content-Security-Policy" content="script-src 'self';" />
-    <link rel="stylesheet" type="text/css" href="../../global.css" />
+    <link rel="stylesheet" type="text/css" href="./../../normalize.css" />
+    <link rel="stylesheet" type="text/css" href="./../../global.css" />
+    <link rel="stylesheet" type="text/css" href="./register.css" />
   </head>
   <body>
-    <h1>Registro de Estudiantes</h1>
-    <button id="regresar-inicio">Regresar a Inicio</button>
-    <button id="lista-alumnos">Listar Alumnos</button>
-    <button id="registro-asistencias">Registro de asistencias</button>
-
-    <form>
-      <label for="nombre">Nombre</label>
-      <input type="text" id="nombre" />
-      <label for="grado">Grado</label>
-      <input type="text" id="grado" />
-      <button id="registrar-alumno">Registrar</button>
-    </form>
+    <div class="main-container">
+      <div class="lateral-menu">
+        <div class="logo-header">
+          <img
+            class="icon-app"
+            src="../../assets/icon-app.svg"
+            alt="icon app"
+          />
+          <h1 class="main-title">Administrador de Estudiantes</h1>
+          <!-- <h2>Lúdica de Programación</h2> -->
+        </div>
+        <div class="opciones">
+          <button class="navegation-button" id="regresar-inicio">Inicio</button>
+          <button class="navegation-button selected-button">
+            Registrar Alumno
+          </button>
+          <button class="navegation-button" id="lista-alumnos">
+            Listar Alumnos
+          </button>
+          <button class="navegation-button" id="registro-asistencias">
+            Registro de asistencias
+          </button>
+        </div>
+      </div>
+      <div class="content">
+        <form class="form-container">
+          <label for="nombre">Nombre</label>
+          <input type="text" id="nombre" />
+          <label for="grado">Grado</label>
+          <input type="text" id="grado" />
+          <button class="boton-registro" id="registrar-alumno">
+            Registrar
+          </button>
+        </form>
+      </div>
+      <p class="credits">
+        Made with ❤️ by
+        <span class="credits-email">chris@soychristian.com</span>
+      </p>
+    </div>
     <script defer src="renderer.js"></script>
   </body>
 </html>

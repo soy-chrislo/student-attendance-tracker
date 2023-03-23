@@ -29,5 +29,12 @@
   { "nombre": "Addison Rhodes", "grado": "9", "id": 27 },
   { "nombre": "Jameson Beard", "grado": "11", "id": 28 },
   { "nombre": "Channing Edwing", "grado": "6", "id": 29 },
-  { "nombre": "Serena Medina", "grado": "7", "id": 30 }
+  { "nombre": "Serena Medina", "grado": "7", "id": 30 },
+  { "nombre": "Chuck Alejandro Norries", "grado": "11", "id": 31 },
+  { "nombre": "Briney Spears", "grado": "2", "id": 32 },
+  { "nombre": "Eminen Gabriel", "grado": "12", "id": 33 },
+  { "nombre": "Chadwick Bossman", "grado": "11", "id": 34 },
+  { "nombre": "Iron Jose Man", "grado": "9", "id": 35 },
+  { "nombre": "Thor Jimenez Alzate", "grado": "7", "id": 36 },
+  { "nombre": "Chuck Norris Ramirez", "grado": "8", "id": 37 }
 ]

@@ -78,3 +78,50 @@
   border: 1px black solid;
   overflow-y: auto;
 }
+
+/* Temporal */
+label {
+  color: black;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+input {
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease-in-out;
+  width: 80%;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid lightgray;
+  height: 200px;
+  width: 250px;
+  margin: 30px;
+  padding: 10px;
+  align-items: center;
+  justify-content: space-evenly;
+  border-radius: 20px;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+}
+
+.boton-registro {
+  background-color: white;
+  color: black;
+  border: 1px solid lightgray;
+  padding: 10px 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.boton-registro:hover {
+  background-color: lightgray;
+  color: white;
+}

@@ -78,3 +78,9 @@
   border: 1px black solid;
   overflow-y: auto;
 }
+
+/* Temporal */
+h2,
+li {
+  color: black;
+}
