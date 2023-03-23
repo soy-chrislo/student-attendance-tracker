@@ -1,4 +1,4 @@
-const { app, BrowserWindow, ipcMain, nativeTheme } = require("electron");
+const { app, BrowserWindow, ipcMain } = require("electron");
 const path = require("path");
 const fs = require("fs");
 
@@ -6,6 +6,9 @@ function createWindow() {
   const win = new BrowserWindow({
     width: 800,
     height: 600,
+    resizable: false,
+    maximizable: false,
+    title: "Gestor de Estudiantes",
     webPreferences: {
       preload: path.join(__dirname, "preload.js"),
       contextIsolation: true,
@@ -14,15 +17,11 @@ function createWindow() {
     },
   });
 
-  win.loadFile("index.html");
+  win.loadFile("./views/index/index.html");
 
   ipcMain.on("change-window", (event, page) => {
-    if (page === "index.html") {
-      win.loadFile(page);
-    } else {
-      const pathPage = `views/${page.split(".")[0]}/${page}`;
-      win.loadFile(pathPage);
-    }
+    const pathPage = `views/${page.split(".")[0]}/${page}`;
+    win.loadFile(pathPage);
   });
   ipcMain.on("registrar-alumno", (event, data) => {
     data.id = getIdToRegister();

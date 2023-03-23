@@ -5,31 +5,27 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="Content-Security-Policy" content="script-src 'self';" />
-    <link rel="stylesheet" type="text/css" href="../../styles.css" />
+    <link rel="stylesheet" type="text/css" href="../../global.css" />
     <meta http-equiv="X-Content-Security-Policy" content="script-src 'self';" />
-    <title>Document</title>
   </head>
   <body>
-    <h1>Registrar asistencias</h1>
-    <button id="regresar-inicio">Regresar a Inicio</button>
-    <button id="lista-alumnos">Listar Alumnos</button>
-    <button id="registrar-alumno">Registrar Alumno</button>
+    <div class="main-container">
+      <h1>Registrar asistencias</h1>
+      <button id="regresar-inicio">Regresar a Inicio</button>
+      <button id="lista-alumnos">Listar Alumnos</button>
+      <button id="registrar-alumno">Registrar Alumno</button>
 
-    <div>
-      <h2>Lista Ausentes</h2>
-      <ul id="lista-ausentes">
+      <div>
+        <h2>Lista Ausentes</h2>
+        <ul id="lista-ausentes"></ul>
+      </div>
 
-      </ul>
+      <div>
+        <h2>Lista Presentes</h2>
+        <ul id="lista-presentes"></ul>
+      </div>
+      <button id="generar-registro">Generar registro</button>
     </div>
-
-    <div>
-      <h2>Lista Presentes</h2>
-      <ul id="lista-presentes">
-        
-      </ul>
-    </div>
-    <button id="generar-registro">Generar registro</button>
-
     <script defer src="renderer.js"></script>
   </body>
 </html>

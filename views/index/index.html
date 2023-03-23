@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self';" />
+    <meta http-equiv="X-Content-Security-Policy" content="script-src 'self';" />
+    <link rel="stylesheet" type="text/css" href="./../../normalize.css" />
+    <link rel="stylesheet" type="text/css" href="./../../global.css" />
+    <link rel="stylesheet" type="text/css" href="./index.css" />
+  </head>
+  <body>
+    <div class="main-container">
+      <div class="lateral-menu">
+        <div class="logo-header">
+          <img
+            class="icon-app"
+            src="../../assets/icon-app.svg"
+            alt="icon app"
+          />
+          <h1 class="main-title">Administrador de Estudiantes</h1>
+          <!-- <h2>Lúdica de Programación</h2> -->
+        </div>
+        <div class="opciones">
+          <button class="option-button" id="registrar-alumno">
+            Registrar Alumno
+          </button>
+          <button class="option-button" id="lista-alumnos">
+            Listar Alumnos
+          </button>
+          <button class="option-button" id="registro-asistencias">
+            Registro de asistencias
+          </button>
+        </div>
+      </div>
+      <div class="content">
+        <!-- El iframe no es viable -->
+      </div>
+      <p class="credits">
+        Made with ❤️ by
+        <span class="credits-email">chris@soychristian.com</span>
+      </p>
+    </div>
+
+    <script defer src="renderer.js"></script>
+  </body>
+</html>
