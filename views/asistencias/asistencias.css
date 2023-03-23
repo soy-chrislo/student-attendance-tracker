@@ -77,6 +77,7 @@
   display: flex;
   border: 1px black solid;
   overflow-y: auto;
+  justify-content: space-between;
 }
 
 /* Temporal */
@@ -100,6 +101,7 @@ h2 {
   padding: 20px;
   margin: 15px;
   overflow-y: auto;
+  width: 45%;
 }
 
 ul {
