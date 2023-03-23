@@ -16,7 +16,7 @@ function createWindow() {
       webSecurity: true,
     },
   });
-
+  win.setMenu(null);
   win.loadFile("./views/index/index.html");
 
   ipcMain.on("change-window", (event, page) => {
