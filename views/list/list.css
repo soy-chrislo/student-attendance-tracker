@@ -80,7 +80,32 @@
 }
 
 /* Temporal */
-th,
-td {
-  color: black;
+
+.tabla {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  font-family: sans-serif;
+  color: #333333;
+  margin-bottom: 20px;
+}
+
+.tabla th,
+.tabla td {
+  padding: 8px;
+  text-align: left;
+  border: 1px solid #e6e6e6;
+}
+
+.tabla th {
+  background-color: #f5f5f5;
+  font-weight: bold;
+}
+
+.tabla tr:nth-child(even) {
+  background-color: #fbfbfb;
+}
+
+.tabla tr:hover {
+  background-color: #f5f5f5;
 }

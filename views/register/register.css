@@ -77,6 +77,8 @@
   display: flex;
   border: 1px black solid;
   overflow-y: auto;
+  align-items: center;
+  justify-content: center;
 }
 
 /* Temporal */
@@ -111,6 +113,7 @@ input {
 }
 
 .boton-registro {
+  margin: 5px 0;
   background-color: white;
   color: black;
   border: 1px solid lightgray;
